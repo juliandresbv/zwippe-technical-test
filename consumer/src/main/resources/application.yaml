@@ -1,0 +1,9 @@
+spring:
+  kafka:
+    transactions:
+      bootstrap-servers: 0.0.0.0:9092
+      topic:
+        transactions: transactions
+      consumer:
+        group-id:
+          transactions: transactions
