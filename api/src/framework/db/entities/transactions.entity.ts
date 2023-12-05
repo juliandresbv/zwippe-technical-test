@@ -6,10 +6,15 @@ export class TransactionsEntity {
   id: string;
 
   @Column()
-  processId: string;
+  correlationId: string;
 
   @Column()
   accountId: string;
+
+  @Column({
+    type: 'decimal',
+  })
+  amount: number;
 
   @Column()
   status: string;

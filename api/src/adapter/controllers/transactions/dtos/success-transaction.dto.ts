@@ -1,6 +1,6 @@
 export interface SuccessTransactionDto {
-  id?: string;
-  processId: string;
+  correlationId: string;
   accountId: string;
+  amount: number;
   status: string;
 }

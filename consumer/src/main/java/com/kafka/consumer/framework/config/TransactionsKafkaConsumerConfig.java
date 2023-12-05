@@ -1,22 +1,18 @@
-package com.kafka.consumer.config;
+package com.kafka.consumer.framework.config;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
-import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.common.serialization.StringDeserializer;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.kafka.core.*;
+import org.springframework.context.annotation.*;
 import org.springframework.kafka.annotation.EnableKafka;
-import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
-import org.springframework.kafka.core.ConsumerFactory;
-import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
+import org.apache.kafka.clients.consumer.ConsumerConfig;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.listener.ContainerProperties;
+import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
+import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 
-import com.kafka.consumer.models.TransactionsModel;
+import com.kafka.consumer.domain.models.TransactionsModel;
 
 @EnableKafka
 @Configuration("TransactionsKafkaConsumerConfig")

@@ -2,8 +2,12 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
+  const port = 3000;
+
   const app = await NestFactory.create(AppModule);
-  await app.listen(3000);
+  await app.listen(port);
+
+  console.log(`Transactions API running at 0.0.0.0:${port}`);
 }
 
 bootstrap();

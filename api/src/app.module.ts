@@ -2,9 +2,9 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { TransactionsEntity } from './framework/db/entities/transactions.entity';
-import { TransactionsUseCases } from './application/use-cases/transactions/transactions.use-cases';
 import { TransactionsController } from './adapter/controllers/transactions/transactions.controller';
 import { TransactionsImplRepository } from './framework/db/repositories/transactions-impl.respository';
+import { TransactionsImplUseCases } from './application/use-cases/transactions/transactions-impl.use-cases';
 
 @Module({
   imports: [
@@ -14,8 +14,8 @@ import { TransactionsImplRepository } from './framework/db/repositories/transact
         type: 'postgres',
         host: '0.0.0.0',
         port: 5432,
-        username: 'root',
-        password: 'root',
+        username: 'admin',
+        password: 'admin',
         database: 'postgres',
         entities: [TransactionsEntity],
         synchronize: true,
@@ -24,7 +24,10 @@ import { TransactionsImplRepository } from './framework/db/repositories/transact
   ],
   controllers: [TransactionsController],
   providers: [
-    TransactionsUseCases,
+    {
+      provide: 'TransactionsUseCases',
+      useClass: TransactionsImplUseCases,
+    },
     {
       provide: 'TransactionsRepository',
       useClass: TransactionsImplRepository,

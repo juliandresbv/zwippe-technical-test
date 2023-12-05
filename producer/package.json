@@ -1,0 +1,15 @@
+{
+  "name": "kafka-producer-node",
+  "version": "1.0.0",
+  "description": "Kafka Producer Node.js",
+  "main": "producer.js",
+  "scripts": {
+    "start": "node producer.js"
+  },
+  "author": "zelify",
+  "license": "MIT",
+  "dependencies": {
+    "faker": "^5.5.3",
+    "kafkajs": "^2.2.4"
+  }
+}
